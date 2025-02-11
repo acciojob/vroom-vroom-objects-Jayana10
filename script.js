@@ -1,27 +1,34 @@
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    greet() {
-        console.log(Hello, my name is ${this.name} and I am ${this.age} years old.); 
-
-    }
+// Car Constructor Function
+function Car(make, model) {
+    this.make = make;
+    this.model = model;
 }
 
+// Add method to Car prototype
+Car.prototype.getMakeModel = function () {
+    return `${this.make} ${this.model}`;
+};
 
-class Employee extends Person {
-    constructor(name, age, jobTitle) {
-        super(name, age);
-        this.jobTitle = jobTitle;
-    }
-
-    jobGreet() {
-        console.log(Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.);
-    }
+// SportsCar Constructor Function (Inheriting from Car)
+function SportsCar(make, model, topSpeed) {
+    // Call the Car constructor
+    Car.call(this, make, model);
+    
+    // Add SportsCar-specific property
+    this.topSpeed = topSpeed;
 }
 
-// Do not change code below this line
-window.Person = Person;
-window.Employee = Employee;
+// Inherit from Car prototype
+SportsCar.prototype = Object.create(Car.prototype);
+
+// Restore constructor reference
+SportsCar.prototype.constructor = SportsCar;
+
+// Add getTopSpeed method to SportsCar prototype
+SportsCar.prototype.getTopSpeed = function () {
+    return this.topSpeed;
+};
+
+// Do not change this
+window.Car = Car;
+window.SportsCar = SportsCar;
