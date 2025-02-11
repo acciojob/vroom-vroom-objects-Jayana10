@@ -1,25 +1,27 @@
-// Complete the js code
-class Car {
-    constructor(make, model) {
-        this.make = make;
-        this.model = model;
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
 
-    getMakeModel() {
-        return ${this.make} ${this.model}; 
-    }
-}
+    greet() {
+        console.log(Hello, my name is ${this.name} and I am ${this.age} years old.); 
 
-class SportsCar extends Car {
-    constructor(make, model, topSpeed) {
-        super(make, model); 
-    }
-
-    getTopSpeed() {
-        return this.topSpeed;
     }
 }
 
-// Do not change this
-window.Car = Car;
-window.SportsCar = SportsCar;
+
+class Employee extends Person {
+    constructor(name, age, jobTitle) {
+        super(name, age);
+        this.jobTitle = jobTitle;
+    }
+
+    jobGreet() {
+        console.log(Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.);
+    }
+}
+
+// Do not change code below this line
+window.Person = Person;
+window.Employee = Employee;
