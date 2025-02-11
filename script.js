@@ -20,6 +20,7 @@ class SportsCar extends Car {
         return this.topSpeed;
     }
 }
+SportsCar.prototype=object.create(Car.prototype);
 
 // Do not change this
 window.Car = Car;
